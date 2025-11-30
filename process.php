@@ -1,24 +1,18 @@
 <?php
-// process.php
-// This page receives POST data, validates, sanitizes and displays a nice formatted output.
-// IMPORTANT: keep this file in the same folder as index.html, style.css and script.js.
 
-// helper: sanitize text for HTML output
 function h($s){
     return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    // If user opens process.php directly, redirect to form
     header('Location: index.html');
     exit;
 }
 
-// Collect and sanitize inputs
 $firstname = isset($_POST['firstname']) ? trim($_POST['firstname']) : '';
 $lastname  = isset($_POST['lastname']) ? trim($_POST['lastname']) : '';
 $email     = isset($_POST['email']) ? trim($_POST['email']) : '';
-$password  = isset($_POST['password']) ? $_POST['password'] : ''; // do not print raw password
+$password  = isset($_POST['password']) ? $_POST['password'] : ''; 
 $gender    = isset($_POST['gender']) ? trim($_POST['gender']) : '';
 $dob       = isset($_POST['dob']) ? trim($_POST['dob']) : '';
 $education = isset($_POST['education']) ? trim($_POST['education']) : '';
@@ -26,7 +20,6 @@ $skills    = isset($_POST['skills']) ? trim($_POST['skills']) : '';
 $message   = isset($_POST['message']) ? trim($_POST['message']) : '';
 $hobbies   = isset($_POST['hobbies']) ? $_POST['hobbies'] : [];
 
-// server-side validation (basic)
 $errors = [];
 if ($firstname === '') $errors[] = 'First name is required.';
 if ($lastname === '') $errors[] = 'Last name is required.';
@@ -127,3 +120,4 @@ if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'A 
   </div>
 </body>
 </html>
+
