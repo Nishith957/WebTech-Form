@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Online Application Form</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Online Application / Registration Form</h1>
+        <p class="muted">Fill the form and click <strong>Submit</strong>. Your application will be displayed on success.
+        </p>
+
+        <form id="appForm" action="process.php" method="post" novalidate>
+            <div class="row">
+                <label for="firstname">First Name *</label>
+                <input type="text" id="firstname" name="firstname" required />
+            </div>
+
+            <div class="row">
+                <label for="lastname">Last Name *</label>
+                <input type="text" id="lastname" name="lastname" required />
+            </div>
+
+            <div class="row">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="row">
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" required />
+                <small class="muted">(Password will not be displayed for security.)</small>
+            </div>
+
+            <div class="row">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender">
+                    <option value="Prefer not to say">Prefer not to say</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" />
+            </div>
+
+            <div class="row">
+                <label>Hobbies (choose any)</label>
+                <label class="inline"><input type="checkbox" name="hobbies[]" value="Coding"> Coding</label>
+                <label class="inline"><input type="checkbox" name="hobbies[]" value="Gaming"> Gaming</label>
+                <label class="inline"><input type="checkbox" name="hobbies[]" value="MMA"> MMA</label>
+                <label class="inline"><input type="checkbox" name="hobbies[]" value="Reading"> Reading</label>
+            </div>
+
+            <div class="row">
+                <label for="education">Highest Education</label>
+                <input type="text" id="education" name="education" placeholder="e.g. B.E. Computer Science" />
+            </div>
+
+            <div class="row">
+                <label for="skills">Technical Skills (comma separated)</label>
+                <input type="text" id="skills" name="skills" placeholder="Java, Python, JavaScript" />
+            </div>
+
+            <div class="row">
+                <label for="message">Short Bio / Additional Info</label>
+                <textarea id="message" name="message" rows="4" placeholder="Write any other details..."></textarea>
+            </div>
+
+            <div class="row actions">
+                <button type="submit" id="submitBtn">Submit Application</button>
+                <button type="reset" class="secondary">Reset</button>
+            </div>
+
+            <div id="formMessage" role="status" aria-live="polite"></div>
+        </form>
+
+        <p class="hint">This simple assignment uses a PHP server to process the form and return a formatted result.</p>
+    </div>
+</body>
+
+</html>
