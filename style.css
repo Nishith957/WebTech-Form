@@ -1,4 +1,4 @@
-/* Simple, clean styling */
+
 :root {
     --bg: #f6f9f8;
     --card: #ffffff;
@@ -112,7 +112,7 @@ button.secondary {
     color: #8b2a2a
 }
 
-/* formatted result display page (process.php uses same stylesheet) */
+
 .result-card {
     background: var(--card);
     padding: 22px;
@@ -170,4 +170,5 @@ footer.note {
     .result-row .label {
         width: auto
     }
+
 }
